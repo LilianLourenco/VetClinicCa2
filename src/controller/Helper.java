@@ -171,7 +171,13 @@ public class Helper {
 		return mystaff;
 	}
 	
-//	public Collection<Animal> ListAnimal(){
-//		
-//	}
+	public Collection<Animal> ListAnimal(){
+		ArrayList<Animal> myAnimal = new ArrayList<Animal>();
+		for (int i = 0; i < this.animalList.size(); i++) {
+			myAnimal.add(animalList.get(i));	
+			
+		}
+		return myAnimal;
+		
+	}
 }
