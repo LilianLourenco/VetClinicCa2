@@ -182,9 +182,12 @@ public class Helper {
 		return myAnimal;
 
 	}
-	public Collection<Staff> listStaff(String category) {
+	public Collection<Staff> listStaff(String keyword) {
 		List<Staff> filterStaff = new ArrayList<Staff>();
 		for(int i=0; i< staffList.size(); i++) {
+			if(this staffList.get(i).getCategory().contains(keyword)) {
+				filterStaff.add(this.staffList.get(i));
+			}
 			
 		}
 			
