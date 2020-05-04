@@ -5,6 +5,8 @@ import staff.Trainee;
 import staff.Veterinarian;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 import animal.Animal;
 import animal.AnimalNameGenerator;
 import animal.Birds;
@@ -124,7 +126,7 @@ public class Helper {
 	public void addCat() {
 		AnimalNameGenerator ng = new AnimalNameGenerator();
 		MedicalConditionGenerator mc = new MedicalConditionGenerator();
-		for (int i = 0; i <=300; i++) {
+		for (int i = 0; i <= 300; i++) {
 			String name = ng.getRandomName();
 			int age = 0;
 			String medicalCondition = mc.getRandomMedCondition();
@@ -159,25 +161,33 @@ public class Helper {
 
 	public Collection<Staff> ListStaff() {
 		ArrayList<Staff> mystaff = new ArrayList<Staff>();
-		
+
 		for (int i = 0; i < this.staffList.size(); i++) {
-			mystaff.add(this.medicalList.get(i));	
+			mystaff.add(this.medicalList.get(i));
 		}
-		
+
 		for (int i = 0; i < this.staffList.size(); i++) {
-			mystaff.add(this.adminList.get(i));	
+			mystaff.add(this.adminList.get(i));
 		}
-	
+
 		return mystaff;
 	}
-	
-	public Collection<Animal> ListAnimal(){
+
+	public Collection<Animal> ListAnimal() {
 		ArrayList<Animal> myAnimal = new ArrayList<Animal>();
 		for (int i = 0; i < this.animalList.size(); i++) {
-			myAnimal.add(animalList.get(i));	
-			
+			myAnimal.add(animalList.get(i));
+
 		}
 		return myAnimal;
-		
+
+	}
+	public Collection<Staff> listStaff(String category) {
+		List<Staff> filterStaff = new ArrayList<Staff>();
+		for(int i=0; i< staffList.size(); i++) {
+			
+		}
+			
+		return filterStaff;
 	}
 }
