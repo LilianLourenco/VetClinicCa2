@@ -24,7 +24,7 @@ import staff.Staff;
 
 public class Helper {
 
-	ArrayList<Medical> medicalList = new ArrayList<Medical>();
+	ArrayList<Medical> medicList = new ArrayList<Medical>();
 	ArrayList<Admin> adminList = new ArrayList<Admin>();
 	ArrayList<Animal> animalList = new ArrayList<Animal>();
 	ArrayList<Staff> staffList = new ArrayList<Staff>();
@@ -39,7 +39,7 @@ public class Helper {
 			double salary = 0;
 			String category = "";
 			Veterinarian vet = new Veterinarian(name, salary, category);
-			medicalList.add(vet);
+			medicList.add(vet);
 			idStaff++;
 		}
 	}
@@ -52,7 +52,7 @@ public class Helper {
 			double salary = 0;
 			String category = "";
 			Nurse nurse = new Nurse(name, salary, category);
-			medicalList.add(nurse);
+			medicList.add(nurse);
 			idStaff++;
 		}
 	}
@@ -64,7 +64,7 @@ public class Helper {
 			double salary = 0;
 			String category = "";
 			Trainee trainee = new Trainee(name, salary, category);
-			medicalList.add(trainee);
+			medicList.add(trainee);
 			idStaff++;
 		}
 	}
@@ -141,8 +141,8 @@ public class Helper {
 		for (int i = 0; i <= 150; i++) {
 			String name = ng.getRandomName();
 			int age = 0;
-			String medicalCondition = mc.getRandomMedCondition();
-			Birds bird = new Birds(name, age, medicalCondition);
+			String medicCondition = mc.getRandomMedCondition();
+			Birds bird = new Birds(name, age, medicCondition);
 			animalList.add(bird);
 		}
 	}
@@ -163,7 +163,7 @@ public class Helper {
 		ArrayList<Staff> mystaff = new ArrayList<Staff>();
 
 		for (int i = 0; i < this.staffList.size(); i++) {
-			mystaff.add(this.medicalList.get(i));
+			mystaff.add(this.medicList.get(i));
 		}
 
 		for (int i = 0; i < this.staffList.size(); i++) {
