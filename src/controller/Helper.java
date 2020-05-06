@@ -12,7 +12,7 @@ import animal.AnimalNameGenerator;
 import animal.Birds;
 import animal.Cat;
 import animal.Dog;
-import animal.MedicalConditionGenerator;
+import animal.AnimalGenerator;
 import animal.Rabbit;
 import staff.Admin;
 import staff.ItNerd;
@@ -30,6 +30,7 @@ public class Helper {
 	ArrayList<Staff> staffList = new ArrayList<Staff>();
 
 	public int idStaff = 0;
+	public int animalId = 0;
 
 //Here start listing all the veterinarian
 	public void addVeterinarian() {
@@ -113,52 +114,58 @@ public class Helper {
 	// HERE START TO ADD THE ANIMALS
 	public void addDog() {
 		AnimalNameGenerator ng = new AnimalNameGenerator();
-		MedicalConditionGenerator mc = new MedicalConditionGenerator();
+		AnimalGenerator mc = new AnimalGenerator();
 		for (int i = 0; i <= 350; i++) {
 			String name = ng.getRandomName();
-			int age = 0;
+			int age = mc.ageGenerator();
 			String medicalCondition = mc.getRandomMedCondition();
 			Dog dog = new Dog(name, age, medicalCondition);
 			animalList.add(dog);
+			animalId++;
 		}
 	}
 
 	public void addCat() {
 		AnimalNameGenerator ng = new AnimalNameGenerator();
-		MedicalConditionGenerator mc = new MedicalConditionGenerator();
+		AnimalGenerator mc = new AnimalGenerator();
 		for (int i = 0; i <= 300; i++) {
 			String name = ng.getRandomName();
-			int age = 0;
+			int age = mc.ageGenerator();
 			String medicalCondition = mc.getRandomMedCondition();
 			Cat cat = new Cat(name, age, medicalCondition);
 			animalList.add(cat);
+			animalId++;
 		}
 	}
 
 	public void addBirds() {
 		AnimalNameGenerator ng = new AnimalNameGenerator();
-		MedicalConditionGenerator mc = new MedicalConditionGenerator();
+		AnimalGenerator mc = new AnimalGenerator();
 		for (int i = 0; i <= 150; i++) {
 			String name = ng.getRandomName();
-			int age = 0;
+			int age = mc.ageGenerator();
 			String medicCondition = mc.getRandomMedCondition();
 			Birds bird = new Birds(name, age, medicCondition);
 			animalList.add(bird);
+			animalId++;
 		}
 	}
 
 	public void addRabbit() {
 		AnimalNameGenerator ng = new AnimalNameGenerator();
-		MedicalConditionGenerator mc = new MedicalConditionGenerator();
+		AnimalGenerator mc = new AnimalGenerator();
 		for (int i = 0; i <= 200; i++) {
 			String name = ng.getRandomName();
-			int age = 0;
+			int age = mc.ageGenerator();
 			String medicalCondition = mc.getRandomMedCondition();
 			Rabbit rabbit = new Rabbit(name, age, medicalCondition);
 			animalList.add(rabbit);
+			animalId++;
 		}
 	}
-
+	
+	
+	//This method is adding all information that I have in adminList and medicList adding in Staff
 	public Collection<Staff> ListStaff() {
 		ArrayList<Staff> mystaff = new ArrayList<Staff>();
 
@@ -172,7 +179,9 @@ public class Helper {
 
 		return mystaff;
 	}
-
+	
+	
+	// I am creating an array of all animals adding
 	public Collection<Animal> ListAnimal() {
 		ArrayList<Animal> myAnimal = new ArrayList<Animal>();
 		for (int i = 0; i < this.animalList.size(); i++) {
@@ -182,6 +191,7 @@ public class Helper {
 		return myAnimal;
 
 	}
+	//I am collecting all staffs and agruping them by category
 	public Collection<Staff> listStaff(String keyword) {
 		List<Staff> filterStaff = new ArrayList<Staff>();
 		for(int i=0; i< staffList.size(); i++) {
