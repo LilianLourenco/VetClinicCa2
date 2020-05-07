@@ -7,7 +7,7 @@ public class StaffNameGenerator {
 	protected String[] firstNames = { "Adao", "Draco", "Harry", "Hermione", "Jack", "Emily", "James", "Ava", "Daniel",
 			"Emma", "Conor", "Sophie", "Seán", "Amelia", "Adam", "Ella", "Noah", "Michael", "Grace", "Charlie", "Mia",
 			"Luke", "Jack", "Emily", "James", "Grace", "Daniel", "Hannah", "Brian", "Alberto", "Manuela", "Eduarda",
-			"Nisleine", "Maria", "Guardalupe", "Eva", "Eliane", "Elizangela", "Leilla", "Walquiria", "Waldirene",
+			"Nisleine", "Maria", "Guardalupe","Suely", "Eva", "Eliane", "Elizangela", "Leilla", "Walquiria", "Waldirene",
 			"Wagner", "Terezinha", "Raoni", "Liana", "Guilherme", "Erick", "Willian", "Lanara", "Amilcar", "Edna",
 			"Ilda", "Debora", "Lily", "Lilian", "Bruna", "Alysson", "Roberta", "Leticia", };
 

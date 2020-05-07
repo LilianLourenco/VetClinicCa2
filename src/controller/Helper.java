@@ -6,21 +6,8 @@ import staff.Veterinarian;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import animal.Animal;
-import animal.AnimalNameGenerator;
-import animal.Birds;
-import animal.Cat;
-import animal.Dog;
-import animal.AnimalGenerator;
-import animal.Rabbit;
-import staff.Admin;
-import staff.ItNerd;
-import staff.Manager;
-import staff.Medical;
-import staff.Nurse;
-import staff.Receptionist;
-import staff.Staff;
+import animal.*;
+import staff.*;
 
 public class Helper {
 
@@ -163,9 +150,9 @@ public class Helper {
 			animalId++;
 		}
 	}
-	
-	
-	//This method is adding all information that I have in adminList and medicList adding in Staff
+
+	// This method is adding all information that I have in adminList and medicList
+	// adding in Staff
 	public Collection<Staff> ListStaff() {
 		ArrayList<Staff> mystaff = new ArrayList<Staff>();
 
@@ -179,8 +166,7 @@ public class Helper {
 
 		return mystaff;
 	}
-	
-	
+
 	// I am creating an array of all animals adding
 	public Collection<Animal> ListAnimal() {
 		ArrayList<Animal> myAnimal = new ArrayList<Animal>();
@@ -191,16 +177,17 @@ public class Helper {
 		return myAnimal;
 
 	}
-	//I am collecting all staffs and agruping them by category
-	public Collection<Staff> listStaff(String keyword) {
+
+	// I am collecting all staffs and agruping them by category
+	public Collection<Staff> listStaff(String Medic) {
 		List<Staff> filterStaff = new ArrayList<Staff>();
-		for(int i=0; i< staffList.size(); i++) {
-			if(this.staffList.get(i).getCategory().contains(keyword)) {
+		for (int i = 0; i < staffList.size(); i++) {
+			if (this.staffList.get(i).getCategory().contains(Medic)) {
 				filterStaff.add(this.staffList.get(i));
 			}
-			
+
 		}
-			
+
 		return filterStaff;
 	}
 }
