@@ -7,9 +7,17 @@ import staff.Staff;
 public class HelperUser extends Helper {
 
 	public static void main(String[] args) {
-
+		new HelperUser();
+	}
+	
+	public HelperUser() {
+		Menu();
+	}
+		
 		Helper myHelper = new Helper();
 
+		public void Menu() {
+			
 		Scanner sc = new Scanner(System.in);
 
 		int option;
@@ -36,7 +44,7 @@ public class HelperUser extends Helper {
 		switch (option) {
 		case 1:
 			for(Staff staff : myHelper.staffList) {
-				System.out.println(" This is the List of all staff: "+staffList);	
+				System.out.println(" This is the List of all staff: "+staff);	
 			}
 			
 			break;
