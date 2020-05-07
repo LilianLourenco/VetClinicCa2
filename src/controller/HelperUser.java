@@ -44,7 +44,9 @@ public class HelperUser extends Helper {
 		switch (option) {
 		case 1:
 			for(Staff staff : myHelper.staffList) {
-				System.out.println(" This is the List of all staff: "+staff);	
+				System.out.println(staff.getName());
+				
+				//System.out.println(" This is the List of all staff: "+staff.getName()+staff.getSurname());	
 			}
 			
 			break;
