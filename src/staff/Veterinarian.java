@@ -6,4 +6,8 @@ public class Veterinarian extends Medical {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Veterinarian(String name, String name2, double salary, String category) {
+		// TODO Auto-generated constructor stub
+	}
+
 }

@@ -6,4 +6,8 @@ public class Nurse extends Medical{
 		// TODO Auto-generated constructor stub
 	}
 
+	public Nurse(String name, String name2, double salary, String category) {
+		// TODO Auto-generated constructor stub
+	}
+
 }

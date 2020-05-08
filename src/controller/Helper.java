@@ -26,7 +26,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Veterinarian vet = new Veterinarian(name, salary, category);
+			Veterinarian vet = new Veterinarian(name, name,salary, category);
 			medicList.add(vet);
 			idStaff++;
 		}
@@ -39,7 +39,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Nurse nurse = new Nurse(name, salary, category);
+			Nurse nurse = new Nurse(name, name,salary, category);
 			medicList.add(nurse);
 			idStaff++;
 		}
@@ -51,7 +51,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Trainee trainee = new Trainee(name, salary, category);
+			Trainee trainee = new Trainee(name, name,salary, category);
 			medicList.add(trainee);
 			idStaff++;
 		}
@@ -65,7 +65,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Manager manager = new Manager(name, salary, category);
+			Manager manager = new Manager(name,name, salary, category);
 			adminList.add(manager);
 			idStaff++;
 		}
@@ -78,7 +78,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			ItNerd itNerd = new ItNerd(name, salary, category);
+			ItNerd itNerd = new ItNerd(name, name,salary, category);
 			adminList.add(itNerd);
 			idStaff++;
 		}
