@@ -65,7 +65,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Manager manager = new Manager(name,name, salary, category);
+			Manager manager = new Manager(name,name, idStaff, salary, category);
 			adminList.add(manager);
 			idStaff++;
 		}
@@ -78,7 +78,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			ItNerd itNerd = new ItNerd(name, name,salary, category);
+			ItNerd itNerd = new ItNerd(name, name,idStaff, salary, category);
 			adminList.add(itNerd);
 			idStaff++;
 		}
@@ -91,7 +91,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Receptionist receptionist = new Receptionist(name, salary, category);
+			Receptionist receptionist = new Receptionist(name, name, idStaff, salary, category);
 			adminList.add(receptionist);
 			idStaff++;
 		}
