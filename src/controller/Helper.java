@@ -26,7 +26,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Veterinarian vet = new Veterinarian(name, name,salary, category);
+			Veterinarian vet = new Veterinarian(name, name,idStaff, salary, category);
 			medicList.add(vet);
 			idStaff++;
 		}
@@ -35,12 +35,14 @@ public class Helper {
 	// Here start listing all the nurse
 	public void addNurse() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
+		
 		for (int i = 0; i <= 18; i++) {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Nurse nurse = new Nurse(name, name,salary, category);
-			medicList.add(nurse);
+			Nurse nurse = new Nurse(name,name, idStaff, salary, category);
+			//medicList.add(nurse);
+			staffList.add(nurse);
 			idStaff++;
 		}
 	}
@@ -51,7 +53,7 @@ public class Helper {
 			String name = staffName.getRandomName();
 			double salary = 0;
 			String category = "";
-			Trainee trainee = new Trainee(name, name,salary, category);
+			Trainee trainee = new Trainee(name, name,idStaff, salary, category);
 			medicList.add(trainee);
 			idStaff++;
 		}
@@ -66,7 +68,7 @@ public class Helper {
 			double salary = 0;
 			String category = "";
 			Manager manager = new Manager(name,name, idStaff, salary, category);
-			adminList.add(manager);
+			staffList.add(manager);
 			idStaff++;
 		}
 
@@ -79,7 +81,7 @@ public class Helper {
 			double salary = 0;
 			String category = "";
 			ItNerd itNerd = new ItNerd(name, name,idStaff, salary, category);
-			adminList.add(itNerd);
+			staffList.add(itNerd);
 			idStaff++;
 		}
 
@@ -179,14 +181,21 @@ public class Helper {
 	}
 
 	// I am collecting all staffs and agruping them by category
-	public Collection<Staff> listStaff(String Medic) {
+	public Collection<Staff> listStaff(String className) {
 		List<Staff> filterStaff = new ArrayList<Staff>();
-		for (int i = 0; i < staffList.size(); i++) {
-			if (this.staffList.get(i).getCategory().contains(Medic)) {
+		
+		for(int i=0; i < staffList.size(); i++) {
+			System.out.print(this.staffList.get(i).getClass().getName());
+			if(this.staffList.get(i).getClass().getName().contains(className)) {
 				filterStaff.add(this.staffList.get(i));
 			}
-
 		}
+//		
+////		for (int i = 0; i < staffList.size(); i++) {
+//			if (this.staffList.get(i).getCategory().contains(className)) {
+//				filterStaff.add(this.staffList.get(i));
+//			}
+//		}
 
 		return filterStaff;
 	}

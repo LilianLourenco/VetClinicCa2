@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Scanner;
 
 import staff.Staff;
@@ -54,6 +56,10 @@ public class HelperUser extends Helper {
 			break;
 		case 2:
 			System.out.println("  IN CONSTRUCTION  List Staff by Categories");
+			Collection<Staff> manager = myHelper.listStaff("Manager");
+			for(int i = 0; i< manager.size(); i++) {
+	//		System.out.println(manager.get(i).getName());
+			}
 			break;
 		case 3:
 			System.out.println("  IN CONSTRUCTION  search the staff by name: IN CONSTRUCTION");
