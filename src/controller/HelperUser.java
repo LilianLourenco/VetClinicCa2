@@ -22,7 +22,11 @@ public class HelperUser extends Helper {
 		Scanner sc = new Scanner(System.in);
 		myHelper.addManager();
 		myHelper.addNurse();
+		myHelper.addReceptionist();
 		myHelper.addItNerd();
+		myHelper.addVeterinarian();
+		myHelper.addTrainne();
+		
 
 		int option;
 		System.out.println("*****************************************");
@@ -49,21 +53,34 @@ public class HelperUser extends Helper {
 		switch (option) {
 		case 1:
 			for (Staff staff : myHelper.staffList) {
-				System.out.println(staff.getName());
+				System.out.println("Id"+ " "+staff.getidStaff()+" " +staff.getName());
 
 			}
 
 			break;
 		case 2:
 			System.out.println("  IN CONSTRUCTION  List Staff by Categories");
-			Collection<Staff> manager = myHelper.listStaff("Manager");
-			for(int i = 0; i< manager.size(); i++) {
+			Collection<Staff> filterStaff = myHelper.listStaff("Manager");
+			for(int i = 0; i< filterStaff.size(); i++) {
 	//		System.out.println(manager.get(i).getName());
+				filterStaff.getClass().getName();
 			}
 			break;
-		case 3:
-			System.out.println("  IN CONSTRUCTION  search the staff by name: IN CONSTRUCTION");
-			break;
+	case 3:
+			//System.out.println("  IN CONSTRUCTION  search the staff by name: IN CONSTRUCTION");
+			
+			String staffName = sc.next();
+			Staff names = myHelper.getStaffByName(staffName);
+			if (names != null) {
+				System.out.println(names.getName() + " " +  " ID: " + names.getidStaff()
+						+ " Salary: " + names.getSalry());
+			} else {
+				System.out.println("Staff not found");
+			}
+			
+			
+//			
+//			break;
 		case 4:
 			System.out.println(" IN CONSTRUCTION  for List all animals IN CONSTRUCTION");
 			break;

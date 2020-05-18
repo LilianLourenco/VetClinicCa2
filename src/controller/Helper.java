@@ -27,7 +27,7 @@ public class Helper {
 			double salary = 0;
 			String category = "";
 			Veterinarian vet = new Veterinarian(name, name,idStaff, salary, category);
-			medicList.add(vet);
+			staffList.add(vet);
 			idStaff++;
 		}
 	}
@@ -41,7 +41,6 @@ public class Helper {
 			double salary = 0;
 			String category = "";
 			Nurse nurse = new Nurse(name,name, idStaff, salary, category);
-			//medicList.add(nurse);
 			staffList.add(nurse);
 			idStaff++;
 		}
@@ -152,22 +151,38 @@ public class Helper {
 			animalId++;
 		}
 	}
+	
+	
+	
+	public Staff getStaffByName(String name) {
+		// get all the members
+		ArrayList allMembers = this.staffList;
+		// loop through all the members
+		for (int i = 0; i < allMembers.size(); i++) {
+			// get all the member
+			Staff names = (Staff) allMembers.get(i);
+			if (names.getName().equals(name)) {
+				return (names);
+			}
+		}
+		return null;
+	}
 
 	// This method is adding all information that I have in adminList and medicList
 	// adding in Staff
-	public Collection<Staff> ListStaff() {
-		ArrayList<Staff> mystaff = new ArrayList<Staff>();
-
-		for (int i = 0; i < this.staffList.size(); i++) {
-			mystaff.add(this.medicList.get(i));
-		}
-
-		for (int i = 0; i < this.staffList.size(); i++) {
-			mystaff.add(this.adminList.get(i));
-		}
-
-		return mystaff;
-	}
+//	public Collection<Staff> ListStaff() {
+//		ArrayList<Staff> mystaff = new ArrayList<Staff>();
+//		
+//		for (int i = 0; i < this.staffList.size(); i++) {
+//			mystaff.add(this.medicList.get(i));
+//		}
+//
+//		for (int i = 0; i < this.staffList.size(); i++) {
+//			mystaff.add(this.adminList.get(i));
+//		}
+//
+//		return mystaff;
+//	}
 
 	// I am creating an array of all animals adding
 	public Collection<Animal> ListAnimal() {
@@ -196,7 +211,7 @@ public class Helper {
 //				filterStaff.add(this.staffList.get(i));
 //			}
 //		}
-
+		
 		return filterStaff;
 	}
 }
