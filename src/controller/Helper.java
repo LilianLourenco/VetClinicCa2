@@ -15,7 +15,7 @@ public class Helper {
 	ArrayList<Admin> adminList = new ArrayList<Admin>();
 	ArrayList<Animal> animalList = new ArrayList<Animal>();
 	ArrayList<Staff> staffList = new ArrayList<Staff>();
-
+	ArrayList<Nurse> nurseList = new ArrayList<Nurse>();
 	public int idStaff = 0;
 	public int animalId = 0;
 

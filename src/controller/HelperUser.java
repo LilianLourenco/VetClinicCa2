@@ -62,10 +62,11 @@ public class HelperUser extends Helper {
 			System.out.println("  IN CONSTRUCTION  List Staff by Categories");
 			Collection<Staff> filterStaff = myHelper.listStaff("Manager");
 			for(int i = 0; i< filterStaff.size(); i++) {
-	//		System.out.println(manager.get(i).getName());
+				 System.out.println(this.staffList.getClass().getName().contains(this.));
 				filterStaff.getClass().getName();
 			}
-			break;
+
+
 	case 3:
 			//System.out.println("  IN CONSTRUCTION  search the staff by name: IN CONSTRUCTION");
 			
@@ -79,8 +80,8 @@ public class HelperUser extends Helper {
 			}
 			
 			
-//			
-//			break;
+			
+			break;
 		case 4:
 			System.out.println(" IN CONSTRUCTION  for List all animals IN CONSTRUCTION");
 			break;
