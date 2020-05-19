@@ -1,217 +1,114 @@
 package controller;
 
-import staff.StaffNameGenerator;
-import staff.Trainee;
-import staff.Veterinarian;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import animal.*;
-import staff.*;
+import java.util.Scanner;
 
-public class Helper {
+import staff.Staff;
 
-	ArrayList<Medical> medicList = new ArrayList<Medical>();
-	ArrayList<Admin> adminList = new ArrayList<Admin>();
-	ArrayList<Animal> animalList = new ArrayList<Animal>();
-	ArrayList<Staff> staffList = new ArrayList<Staff>();
-	ArrayList<Nurse> nurseList = new ArrayList<Nurse>();
-	public int idStaff = 0;
-	public int animalId = 0;
+public class Helper extends StaffFactory {
 
-//Here start listing all the veterinarian
-	public void addVeterinarian() {
-		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 5; i++) {
-			String name = staffName.getRandomName();
-			double salary = 0;
-			String category = "";
-			Veterinarian vet = new Veterinarian(name, name,idStaff, salary, category);
-			staffList.add(vet);
-			idStaff++;
-		}
+	public static void main(String[] args) {
+		new Helper();
 	}
 
-	// Here start listing all the nurse
-	public void addNurse() {
-		StaffNameGenerator staffName = new StaffNameGenerator();
+	public Helper() {
+		Menu();
+	}
+
+	public void Menu() {
+		StaffFactory myStaff = new StaffFactory();
+		AnimalFactory myAnimal = new AnimalFactory();
+
+		Scanner sc = new Scanner(System.in);
+		myStaff.addManager();
+		myStaff.addNurse();
+		myStaff.addReceptionist();
+		myStaff.addItNerd();
+		myStaff.addVeterinarian();
+		myStaff.addTrainne();
 		
-		for (int i = 0; i <= 18; i++) {
-			String name = staffName.getRandomName();
-			double salary = 0;
-			String category = "";
-			Nurse nurse = new Nurse(name,name, idStaff, salary, category);
-			staffList.add(nurse);
-			idStaff++;
-		}
-	}
 
-	public void addTrainne() {
-		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 7; i++) {
-			String name = staffName.getRandomName();
-			double salary = 0;
-			String category = "";
-			Trainee trainee = new Trainee(name, name,idStaff, salary, category);
-			medicList.add(trainee);
-			idStaff++;
-		}
-	}
+		int option;
+		System.out.println("*****************************************");
+		System.out.println("*                                       *");
+		System.out.println("*       WELCOME TO THE VET CLINIC       *");
+		System.out.println("*                                       *");
+		System.out.println("*****************************************");
+		System.out.println("Type your option");
 
-	// HERE START THE ADMIM STAFFS
-	// Here start listing all the veterinarian
-	public void addManager() {
-		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 3; i++) {
-			String name = staffName.getRandomName();
-			double salary = 0;
-			String category = "";
-			Manager manager = new Manager(name,name, idStaff, salary, category);
-			staffList.add(manager);
-			idStaff++;
-		}
+		System.out.println();
+		System.out.println("Press 1: for List all staffs");
+		System.out.println("Press 2: for List Staffs by category");
+		System.out.println("Press 3: for search the staff by name");
+		System.out.println("Press 4: for List all animals");
+		System.out.println("Press 5: for List animals by species");
+		System.out.println("Press 6: for Search for a specific animal by name ");
+		System.out.println("Press 7: List all the animals assigned to a member of medical staff ");
+		System.out.println(
+				"Press 8: List the order in which pets will be looked after by a particular member of the medical");
+		System.out.println("Press 9: For a given member of the medical staff, pass to the next pet ");
+		System.out.println("Press 0 to leave the menu");
+		option = sc.nextInt();
 
-	}
+		switch (option) {
+		case 1:
+			for (Staff staff : myStaff.staffList) {
+				System.out.println("Id"+ " "+staff.getidStaff()+" " +staff.getName());
 
-	public void addItNerd() {
-		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 2; i++) {
-			String name = staffName.getRandomName();
-			double salary = 0;
-			String category = "";
-			ItNerd itNerd = new ItNerd(name, name,idStaff, salary, category);
-			staffList.add(itNerd);
-			idStaff++;
-		}
-
-	}
-
-	public void addReceptionist() {
-		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 5; i++) {
-			String name = staffName.getRandomName();
-			double salary = 0;
-			String category = "";
-			Receptionist receptionist = new Receptionist(name, name, idStaff, salary, category);
-			adminList.add(receptionist);
-			idStaff++;
-		}
-
-	}
-
-	// HERE START TO ADD THE ANIMALS
-	public void addDog() {
-		AnimalNameGenerator ng = new AnimalNameGenerator();
-		AnimalGenerator mc = new AnimalGenerator();
-		for (int i = 0; i <= 350; i++) {
-			String name = ng.getRandomName();
-			int age = mc.ageGenerator();
-			String medicalCondition = mc.getRandomMedCondition();
-			Dog dog = new Dog(name, age, medicalCondition);
-			animalList.add(dog);
-			animalId++;
-		}
-	}
-
-	public void addCat() {
-		AnimalNameGenerator ng = new AnimalNameGenerator();
-		AnimalGenerator mc = new AnimalGenerator();
-		for (int i = 0; i <= 300; i++) {
-			String name = ng.getRandomName();
-			int age = mc.ageGenerator();
-			String medicalCondition = mc.getRandomMedCondition();
-			Cat cat = new Cat(name, age, medicalCondition);
-			animalList.add(cat);
-			animalId++;
-		}
-	}
-
-	public void addBirds() {
-		AnimalNameGenerator ng = new AnimalNameGenerator();
-		AnimalGenerator mc = new AnimalGenerator();
-		for (int i = 0; i <= 150; i++) {
-			String name = ng.getRandomName();
-			int age = mc.ageGenerator();
-			String medicCondition = mc.getRandomMedCondition();
-			Birds bird = new Birds(name, age, medicCondition);
-			animalList.add(bird);
-			animalId++;
-		}
-	}
-
-	public void addRabbit() {
-		AnimalNameGenerator ng = new AnimalNameGenerator();
-		AnimalGenerator mc = new AnimalGenerator();
-		for (int i = 0; i <= 200; i++) {
-			String name = ng.getRandomName();
-			int age = mc.ageGenerator();
-			String medicalCondition = mc.getRandomMedCondition();
-			Rabbit rabbit = new Rabbit(name, age, medicalCondition);
-			animalList.add(rabbit);
-			animalId++;
-		}
-	}
-	
-	
-	
-	public Staff getStaffByName(String name) {
-		// get all the members
-		ArrayList allMembers = this.staffList;
-		// loop through all the members
-		for (int i = 0; i < allMembers.size(); i++) {
-			// get all the member
-			Staff names = (Staff) allMembers.get(i);
-			if (names.getName().equals(name)) {
-				return (names);
 			}
-		}
-		return null;
-	}
 
-	// This method is adding all information that I have in adminList and medicList
-	// adding in Staff
-//	public Collection<Staff> ListStaff() {
-//		ArrayList<Staff> mystaff = new ArrayList<Staff>();
-//		
-//		for (int i = 0; i < this.staffList.size(); i++) {
-//			mystaff.add(this.medicList.get(i));
-//		}
-//
-//		for (int i = 0; i < this.staffList.size(); i++) {
-//			mystaff.add(this.adminList.get(i));
-//		}
-//
-//		return mystaff;
-//	}
-
-	// I am creating an array of all animals adding
-	public Collection<Animal> ListAnimal() {
-		ArrayList<Animal> myAnimal = new ArrayList<Animal>();
-		for (int i = 0; i < this.animalList.size(); i++) {
-			myAnimal.add(animalList.get(i));
-
-		}
-		return myAnimal;
-
-	}
-
-	// I am collecting all staffs and agruping them by category
-	public Collection<Staff> listStaff(String className) {
-		List<Staff> filterStaff = new ArrayList<Staff>();
-		
-		for(int i=0; i < staffList.size(); i++) {
-			System.out.print(this.staffList.get(i).getClass().getName());
-			if(this.staffList.get(i).getClass().getName().contains(className)) {
-				filterStaff.add(this.staffList.get(i));
+			break;
+		case 2:
+			System.out.println("  IN CONSTRUCTION  List Staff by Categories");
+			Collection<Staff> filterStaff = myStaff.listStaff("Manager");
+			for(int i = 0; i< filterStaff.size(); i++) {
+				 System.out.println(this.staffList.getClass().getName().contains("manager"));
+				filterStaff.getClass().getName();
 			}
+
+
+	case 3:
+			//System.out.println("  IN CONSTRUCTION  search the staff by name: IN CONSTRUCTION");
+			
+			String staffName = sc.next();
+			Staff names = myStaff.getStaffByName(staffName);
+			if (names != null) {
+				System.out.println(names.getName() + " " +  " ID: " + names.getidStaff()
+						+ " Salary: " + names.getSalry());
+			} else {
+				System.out.println("Staff not found");
+			}
+			
+			
+			
+			break;
+		case 4:
+			System.out.println(" IN CONSTRUCTION  for List all animals IN CONSTRUCTION");
+			break;
+
+		case 5:
+			System.out.println(" IN CONSTRUCTION List animals by species");
+			break;
+
+		case 6:
+			System.out.println(" IN CONSTRUCTION  Search for a specific animal by name");
+			break;
+
+		case 7:
+			System.out.println("IN CONSTRUCTION   List all the animals assigned to a member of medical staff");
+			break;
+
+		case 8:
+			System.out.println(
+					" IN CONSTRUCTION  List the order in which pets will be looked after by a particular member of the medical");
+			break;
+
+		case 9:
+			System.out.println(" IN CONSTRUCTION  For a given member of the medical staff, pass to the next pet.");
+			break;
 		}
-//		
-////		for (int i = 0; i < staffList.size(); i++) {
-//			if (this.staffList.get(i).getCategory().contains(className)) {
-//				filterStaff.add(this.staffList.get(i));
-//			}
-//		}
-		
-		return filterStaff;
+
 	}
+
 }
