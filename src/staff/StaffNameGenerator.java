@@ -4,6 +4,7 @@ import java.util.Random;
 
 public class StaffNameGenerator {
 
+	Random r = new Random();
 	protected String[] firstNames = { "Adao", "Draco", "Harry", "Hermione", "Jack", "Emily", "James", "Ava", "Daniel",
 			"Emma", "Conor", "Sophie", "Seán", "Amelia", "Adam", "Ella", "Noah", "Michael", "Grace", "Charlie", "Mia",
 			"Luke", "Jack", "Emily", "James", "Grace", "Daniel", "Hannah", "Brian", "Alberto", "Manuela", "Eduarda",
@@ -21,17 +22,21 @@ public class StaffNameGenerator {
 
 	}
 
-	public String getRandomName() {
+	public String getRandomFirstName() {
 		// return a random name
 
-		Random r = new Random();
 
 		// pick a firstname and surname based on length of array
 		String fname = firstNames[r.nextInt(firstNames.length)];
+		
+
+		return (fname ) ;
+
+	}
+	
+	public String getRandomSurname() {
 		String sname = surnames[r.nextInt(surnames.length)];
-
-		return (fname + " " + sname);
-
+		return (sname);
 	}
 
 }

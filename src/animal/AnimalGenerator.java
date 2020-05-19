@@ -3,10 +3,9 @@ package animal;
 import java.util.Random;
 
 public class AnimalGenerator {
-	
 
 	Random rd = new Random();
-	
+
 	protected String[] mCondition = { "Cancer", "Diabetes", "Heartworm", "Kennel Cough", "Rabies", "Parvovirus",
 			"Ringworm", "Allergies", "Arthritis", "Bronchitis", "Influenza Virus", "Diarrhea", "Enteritis",
 			"Depression", "Deafness", "Demodectic Mange", "Dental Disease", "Fecal impaction", "Flea Allergy",
@@ -16,26 +15,21 @@ public class AnimalGenerator {
 			"Epiphora", "Eye Infections", "Eyelid Conditions", "Eyes Retinal Diseases", "Kidney Disease",
 			"Kidney Failure", "Mange", "Mast Cell Tumors", "Pancreatitis", "Pregnancy", "Worms", };
 
-
-
 	public String getRandomMedCondition() {
 		// return a random name
-
-		
 
 		// pick a firstname and surname based on length of array
 
 		String medCondition = mCondition[rd.nextInt(mCondition.length)];
-		System.out.println(medCondition);
 		return (medCondition);
 
 	}
+
 	public int ageGenerator() {
-		int age = rd.nextInt(17);
-		//System.out.println(age);
+		int age = rd.nextInt(16);
+		// System.out.println(age);
 		return age;
-			
-		
+
 	}
 
 }

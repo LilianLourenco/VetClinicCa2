@@ -1,9 +1,9 @@
 package animal;
 
-public class Birds extends Animal{
+public class Birds extends Animal {
 
-	public Birds(String name, int age, String medicalCondition) {
-		// TODO Auto-generated constructor stub
+	public Birds(String name, int animalId, int age, String medicalCondition) {
+		super(name, animalId, age, medicalCondition);
+
 	}
-
 }

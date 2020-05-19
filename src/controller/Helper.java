@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
+import animal.Animal;
 import staff.Staff;
 
 public class Helper extends StaffFactory {
@@ -27,7 +28,10 @@ public class Helper extends StaffFactory {
 		myStaff.addItNerd();
 		myStaff.addVeterinarian();
 		myStaff.addTrainne();
-		
+		myAnimal.addDog();
+		myAnimal.addCat();
+		myAnimal.addRabbit();
+		myAnimal.addBirds();
 
 		int option;
 		System.out.println("*****************************************");
@@ -54,7 +58,7 @@ public class Helper extends StaffFactory {
 		switch (option) {
 		case 1:
 			for (Staff staff : myStaff.staffList) {
-				System.out.println("Id"+ " "+staff.getidStaff()+" " +staff.getName());
+				System.out.println("Id" + " " + staff.getidStaff() + " " + staff.getName() +" " +staff.getSurname());
 
 			}
 
@@ -62,37 +66,50 @@ public class Helper extends StaffFactory {
 		case 2:
 			System.out.println("  IN CONSTRUCTION  List Staff by Categories");
 			Collection<Staff> filterStaff = myStaff.listStaff("Manager");
-			for(int i = 0; i< filterStaff.size(); i++) {
-				 System.out.println(this.staffList.getClass().getName().contains("manager"));
+			for (int i = 0; i < filterStaff.size(); i++) {
+				System.out.println(this.staffList.getClass().getName().contains("manager"));
 				filterStaff.getClass().getName();
 			}
 
-
-	case 3:
-			//System.out.println("  IN CONSTRUCTION  search the staff by name: IN CONSTRUCTION");
+		case 3:
+			// System.out.println(" IN CONSTRUCTION search the staff by name: IN
+			// CONSTRUCTION");
 			
+			
+			
+			System.out.println("Type the Staff's first name: ");
 			String staffName = sc.next();
-			Staff names = myStaff.getStaffByName(staffName);
-			if (names != null) {
-				System.out.println(names.getName() + " " +  " ID: " + names.getidStaff()
-						+ " Salary: " + names.getSalry());
+			Staff nameStaff = myStaff.getStaffByName(staffName);
+			if (nameStaff != null) {
+				System.out.println(nameStaff.getName() + " "+nameStaff.getSurname() + " ID: " + nameStaff.getidStaff() );
 			} else {
-				System.out.println("Staff not found");
+				System.out.println("Staff not found in the Database!");
 			}
-			
-			
-			
+
 			break;
 		case 4:
-			System.out.println(" IN CONSTRUCTION  for List all animals IN CONSTRUCTION");
+			for (Animal animal : myAnimal.animalList) {
+				System.out.println("Id" + " " + animal.getAnimalId() + " " + animal.getName());
+
+			}
+
 			break;
 
 		case 5:
-			System.out.println(" IN CONSTRUCTION List animals by species");
+			System.out.println(" IN CONSTRUCTION  Search for a specific animal by species");
+			
 			break;
 
 		case 6:
-			System.out.println(" IN CONSTRUCTION  Search for a specific animal by name");
+			
+			System.out.println("Type the Animal name:");
+			String animalName = sc.next();			
+			Animal name = myAnimal.getAnimalByName(animalName);
+			if (name != null) {
+				System.out.println(name.getName() + " " + " ID: " + name.getAnimalId()+" "+"Animal age"+" "+name.getAge()+" "+"Medical Conditional"+" "+ name.getMedicalCondition());
+			} else {
+				System.out.println("Animal not found");
+			}
 			break;
 
 		case 7:

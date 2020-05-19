@@ -13,20 +13,21 @@ public class StaffFactory {
 
 	ArrayList<Medical> medicList = new ArrayList<Medical>();
 	ArrayList<Admin> adminList = new ArrayList<Admin>();
-	
 	ArrayList<Staff> staffList = new ArrayList<Staff>();
-	ArrayList<Nurse> nurseList = new ArrayList<Nurse>();
+	//ArrayList<Nurse> nurseList = new ArrayList<Nurse>();
 	public int idStaff = 0;
 	
 
+	
 //Here start listing all the veterinarian
 	public void addVeterinarian() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 5; i++) {
-			String name = staffName.getRandomName();
+		for (int i = 1; i <= 6; i++) {
+			String name = staffName.getRandomFirstName();
+			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Veterinarian vet = new Veterinarian(name, name,idStaff, salary, category);
+			Veterinarian vet = new Veterinarian(name, surname,idStaff, salary, category);
 			staffList.add(vet);
 			idStaff++;
 		}
@@ -36,11 +37,12 @@ public class StaffFactory {
 	public void addNurse() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
 		
-		for (int i = 0; i <= 18; i++) {
-			String name = staffName.getRandomName();
+		for (int i = 1; i <= 21; i++) {
+			String name = staffName.getRandomFirstName();
+			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Nurse nurse = new Nurse(name,name, idStaff, salary, category);
+			Nurse nurse = new Nurse(name,surname, idStaff, salary, category);
 			staffList.add(nurse);
 			idStaff++;
 		}
@@ -48,11 +50,12 @@ public class StaffFactory {
 
 	public void addTrainne() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 7; i++) {
-			String name = staffName.getRandomName();
+		for (int i = 1; i <= 8; i++) {
+			String name = staffName.getRandomFirstName();
+			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Trainee trainee = new Trainee(name, name,idStaff, salary, category);
+			Trainee trainee = new Trainee(name, surname,idStaff, salary, category);
 			medicList.add(trainee);
 			idStaff++;
 		}
@@ -62,11 +65,12 @@ public class StaffFactory {
 	// Here start listing all the veterinarian
 	public void addManager() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 3; i++) {
-			String name = staffName.getRandomName();
+		for (int i = 0; i <= 4; i++) {
+			String name = staffName.getRandomFirstName();
+			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Manager manager = new Manager(name,name, idStaff, salary, category);
+			Manager manager = new Manager(name,surname, idStaff, salary, category);
 			staffList.add(manager);
 			idStaff++;
 		}
@@ -75,11 +79,12 @@ public class StaffFactory {
 
 	public void addItNerd() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 2; i++) {
-			String name = staffName.getRandomName();
+		for (int i = 1; i <= 3; i++) {
+			String name = staffName.getRandomFirstName();
+			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			ItNerd itNerd = new ItNerd(name, name,idStaff, salary, category);
+			ItNerd itNerd = new ItNerd(name, surname,idStaff, salary, category);
 			staffList.add(itNerd);
 			idStaff++;
 		}
@@ -88,11 +93,12 @@ public class StaffFactory {
 
 	public void addReceptionist() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 5; i++) {
-			String name = staffName.getRandomName();
+		for (int i = 1; i <= 6; i++) {
+			String name = staffName.getRandomFirstName();
+			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Receptionist receptionist = new Receptionist(name, name, idStaff, salary, category);
+			Receptionist receptionist = new Receptionist(name, surname, idStaff, salary, category);
 			adminList.add(receptionist);
 			idStaff++;
 		}
@@ -104,7 +110,7 @@ public class StaffFactory {
 		// get all the members
 		ArrayList allMembers = this.staffList;
 		// loop through all the members
-		for (int i = 0; i < allMembers.size(); i++) {
+		for (int i = 1; i < allMembers.size(); i++) {
 			// get all the member
 			Staff names = (Staff) allMembers.get(i);
 			if (names.getName().equals(name)) {
