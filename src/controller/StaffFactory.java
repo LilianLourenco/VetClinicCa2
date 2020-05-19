@@ -143,7 +143,7 @@ public class StaffFactory {
 		
 		for(int i=0; i < staffList.size(); i++) {
 			System.out.print(this.staffList.get(i).getClass().getName());
-			if(this.staffList.get(i).getClass().getName().contains(className)) {
+			if(this.staffList.get(i).getClass().getName().contains("nurse")) {
 				filterStaff.add(this.staffList.get(i));
 			}
 		}

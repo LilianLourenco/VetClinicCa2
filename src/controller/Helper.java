@@ -48,10 +48,11 @@ public class Helper extends StaffFactory {
 		System.out.println("Press 4: for List all animals");
 		System.out.println("Press 5: for List animals by species");
 		System.out.println("Press 6: for Search for a specific animal by name ");
-		System.out.println("Press 7: List all the animals assigned to a member of medical staff ");
+		System.out.println("Press 7: List all Admin staff performing a certain task");
+		System.out.println("Press 8: List all the animals assigned to a member of medical staff ");
 		System.out.println(
-				"Press 8: List the order in which pets will be looked after by a particular member of the medical");
-		System.out.println("Press 9: For a given member of the medical staff, pass to the next pet ");
+				"Press 9: List the order in which pets will be looked after by a particular member of the medical");
+		System.out.println("Press 10: For a given member of the medical staff, pass to the next pet ");
 		System.out.println("Press 0 to leave the menu");
 		option = sc.nextInt();
 
@@ -69,13 +70,11 @@ public class Helper extends StaffFactory {
 			for (int i = 0; i < filterStaff.size(); i++) {
 				System.out.println(this.staffList.getClass().getName().contains("manager"));
 				filterStaff.getClass().getName();
+				System.out.println();
 			}
+			break;
 
 		case 3:
-			// System.out.println(" IN CONSTRUCTION search the staff by name: IN
-			// CONSTRUCTION");
-			
-			
 			
 			System.out.println("Type the Staff's first name: ");
 			String staffName = sc.next();
@@ -98,6 +97,9 @@ public class Helper extends StaffFactory {
 		case 5:
 			System.out.println(" IN CONSTRUCTION  Search for a specific animal by species");
 			
+			
+			
+			
 			break;
 
 		case 6:
@@ -111,17 +113,19 @@ public class Helper extends StaffFactory {
 				System.out.println("Animal not found");
 			}
 			break;
-
 		case 7:
+			System.out.println("List all Admin staff performing a certain task");
+			break;
+		case 8:
 			System.out.println("IN CONSTRUCTION   List all the animals assigned to a member of medical staff");
 			break;
 
-		case 8:
+		case 9:
 			System.out.println(
 					" IN CONSTRUCTION  List the order in which pets will be looked after by a particular member of the medical");
 			break;
 
-		case 9:
+		case 10:
 			System.out.println(" IN CONSTRUCTION  For a given member of the medical staff, pass to the next pet.");
 			break;
 		}

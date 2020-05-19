@@ -5,15 +5,17 @@ public abstract class Animal {
 	protected  int animalId;
 	protected int age;
 	protected String medicalCondition;
+	protected String animalType;
 	
 	
 	
-	public Animal(String name, int animalId, int age, String medicalCondition) {
+	public Animal(String name, int animalId, int age, String medicalCondition, String animalType) {
 		super();
 		this.name = name;
 		this.animalId = animalId;
 		this.age = age;
 		this.medicalCondition = medicalCondition;
+		this.animalType = animalType;
 		
 		
 	}
@@ -51,6 +53,14 @@ public abstract class Animal {
 	}
 	
 
+
+	public String getAnimalType() {
+		return animalType;
+	}
+
+	public void setAnimalType(String animalType) {
+		this.animalType = animalType;
+	}
 
 	@Override
 	public String toString() {

@@ -2,6 +2,7 @@ package controller;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import animal.Animal;
 import animal.AnimalGenerator;
@@ -20,26 +21,27 @@ public class AnimalFactory {
 	public int animalId = 0;
 	// HERE START TO ADD THE ANIMALS
 
-
-
 	public void addCat() {
 
 		for (int i = 1; i <= 300; i++) {
 			String name = ng.getRandomName();
 			int age = mc.ageGenerator();
 			String medicalCondition = mc.getRandomMedCondition();
-			Cat cat = new Cat(name, animalId, age, medicalCondition);
+			String animalType = "";
+			Cat cat = new Cat(name, animalId, age, medicalCondition, animalType);
 			animalList.add(cat);
 			animalId++;
 		}
 	}
+
 	public void addDog() {
 
 		for (int i = 1; i <= 351; i++) {
 			String name = ng.getRandomName();
 			int age = mc.ageGenerator();
 			String medicalCondition = mc.getRandomMedCondition();
-			Dog dog = new Dog(name, animalId, age, medicalCondition);
+			String animalType = "";
+			Dog dog = new Dog(name, animalId, age, medicalCondition, animalType);
 			animalList.add(dog);
 			animalId++;
 		}
@@ -51,7 +53,8 @@ public class AnimalFactory {
 			String name = ng.getRandomName();
 			int age = mc.ageGenerator();
 			String medicCondition = mc.getRandomMedCondition();
-			Birds bird = new Birds(name, animalId, age, medicCondition);
+			String animalType = "";
+			Birds bird = new Birds(name, animalId, age, medicCondition, animalType);
 			animalList.add(bird);
 			animalId++;
 		}
@@ -63,7 +66,8 @@ public class AnimalFactory {
 			String name = ng.getRandomName();
 			int age = mc.ageGenerator();
 			String medicalCondition = mc.getRandomMedCondition();
-			Rabbit rabbit = new Rabbit(name, animalId, age, medicalCondition);
+			String animalType = "";
+			Rabbit rabbit = new Rabbit(name, animalId, age, medicalCondition, animalType);
 			animalList.add(rabbit);
 			animalId++;
 		}
@@ -79,7 +83,6 @@ public class AnimalFactory {
 		return myAnimal;
 
 	}
-	
 
 	public Animal getAnimalByName(String animalName) {
 		// get all the members
@@ -95,5 +98,15 @@ public class AnimalFactory {
 		return null;
 	}
 
+	public Collection<Animal> listAnimal(String species) {
+		List<Animal> filterAnimals = new ArrayList<Animal>();
 
+		for (int i = 0; i < animalList.size(); i++) {
+			System.out.print(this.animalList.get(i).getClass().getName());
+			if (this.animalList.get(i).getClass().getName().contains("Dog")) {
+				filterAnimals.add(this.animalList.get(i));
+			}
+		}
+		return filterAnimals;
+	}
 }
