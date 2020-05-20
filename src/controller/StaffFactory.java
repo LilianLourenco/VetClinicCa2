@@ -36,7 +36,7 @@ public class StaffFactory implements AdminInterface {
 	public void addNurse() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
 
-		for (int i = 1; i <= 21; i++) {
+		for (int i = 1; i <= 15; i++) {
 			String name = staffName.getRandomFirstName();
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
@@ -55,7 +55,7 @@ public class StaffFactory implements AdminInterface {
 			double salary = 0;
 			String category = "";
 			Trainee trainee = new Trainee(name, surname, idStaff, salary, category);
-			medicList.add(trainee);
+			staffList.add(trainee);
 			idStaff++;
 		}
 	}
@@ -78,7 +78,7 @@ public class StaffFactory implements AdminInterface {
 
 	public void addItNerd() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 1; i <= 3; i++) {
+		for (int i = 1; i <= 4; i++) {
 			String name = staffName.getRandomFirstName();
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
@@ -92,13 +92,13 @@ public class StaffFactory implements AdminInterface {
 
 	public void addReceptionist() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 1; i <= 7; i++) {
+		for (int i = 1; i <= 4; i++) {
 			String name = staffName.getRandomFirstName();
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Receptionist receptionist = new Receptionist(name, surname, idStaff, salary, category, "Attending client");
-			adminList.add(receptionist);
+			Receptionist receptionist = new Receptionist(name, surname, idStaff, salary, category, "Test");
+			staffList.add(receptionist);
 			idStaff++;
 		}
 
@@ -118,46 +118,23 @@ public class StaffFactory implements AdminInterface {
 		return null;
 	}
 
-	// This method is adding all information that I have in adminList and medicList
-	// adding in Staff
-//	public Collection<Staff> ListStaff() {
-//		ArrayList<Staff> mystaff = new ArrayList<Staff>();
-//		
-//		for (int i = 0; i < this.staffList.size(); i++) {
-//			mystaff.add(this.medicList.get(i));
-//		}
-//
-//		for (int i = 0; i < this.staffList.size(); i++) {
-//			mystaff.add(this.adminList.get(i));
-//		}
-//
-//		return mystaff;
-//	}
-
 	// I am collecting all staffs and agruping them by category
 	public Collection<Staff> listStaff(String className) {
 		List<Staff> filterStaff = new ArrayList<Staff>();
 
 		for (int i = 0; i < staffList.size(); i++) {
-			//System.out.print(this.staffList.get(i).getClass().getName());
 			if (this.staffList.get(i).getClass().getName().contains(className)) {
 				filterStaff.add(this.staffList.get(i));
 			}
 		}
-//		
-////		for (int i = 0; i < staffList.size(); i++) {
-//			if (this.staffList.get(i).getCategory().contains(className)) {
-//				filterStaff.add(this.staffList.get(i));
-//			}
-//		}
 
 		return filterStaff;
 	}
-	
-	public Collection<Staff> listByTask(String task){
+
+	public Collection<Staff> listByTask(String task) {
 		List<Staff> staffs = new ArrayList<Staff>();
-		for(Staff staff: staffList) {
-			if(staff.IsAdmin() && ((Admin)staff).GetTask() == task) {
+		for (Staff staff : staffList) {
+			if (staff.IsAdmin() && ((Admin) staff).GetTask() == task) {
 				staffs.add(staff);
 			}
 		}
@@ -165,37 +142,15 @@ public class StaffFactory implements AdminInterface {
 	}
 
 	@Override
-	public String CheckSystem() {
-		if (category.equalsIgnoreCase("ItNerd") || (category.equalsIgnoreCase("Manager"))) {
-
-		}
-		return category;// TODO Auto-generated method stub
-
+	public String GetTask() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public String SellProduts() {
-		if (category.equalsIgnoreCase("Receptionist")) {
-
-		}
-
-		return category;
+	public boolean IsAdmin() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
-	@Override
-	public String bookAnimalAppointment() {
-		if (category.equalsIgnoreCase("Receptionist")) {
-
-		}
-		return category;
-	}
-
-	@Override
-	public String OrderSupplies() {
-		String category = "";
-		if (category.equalsIgnoreCase("Manager")) {
-
-		}
-		return category;
-	}
 }

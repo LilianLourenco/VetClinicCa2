@@ -1,10 +1,13 @@
 package staff;
 
+import java.util.Random;
+
 public class Admin extends Staff implements AdminInterface{
 	public Admin(String name, String surname, int idStaff, double salary, String category, String task) {
 				super(name, surname, idStaff, salary, category);
-				this.task = task;
+				this.task = task;// the type of task that the Admin will 
 		    }
+	Random rd = new Random();
 	
 	protected String task;
 
@@ -13,30 +16,7 @@ public class Admin extends Staff implements AdminInterface{
 		return task;
 	}
 
-	@Override
-	public String CheckSystem() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String SellProduts() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String bookAnimalAppointment() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String OrderSupplies() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 	@Override
 	public boolean IsAdmin() {
 		return true;

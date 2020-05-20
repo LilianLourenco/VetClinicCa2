@@ -74,13 +74,14 @@ public class AnimalFactory {
 	}
 
 	// I am creating an array of all animals adding
-	public Collection<Animal> ListAnimal() {
-		ArrayList<Animal> myAnimal = new ArrayList<Animal>();
+	public Collection<Animal> ListAnimal(String className) {
+		ArrayList<Animal> filterAnimal = new ArrayList<Animal>();
 		for (int i = 0; i < this.animalList.size(); i++) {
-			myAnimal.add(animalList.get(i));
+			if (this.animalList.get(i).getClass().getName().contains(className))
+				filterAnimal.add(animalList.get(i));
 
 		}
-		return myAnimal;
+		return filterAnimal;
 
 	}
 
@@ -98,17 +99,16 @@ public class AnimalFactory {
 		return null;
 	}
 
-	public Collection<Animal> listAnimal(String species) {
+	public Collection<Animal> listAnimal(String className) {
 		List<Animal> filterAnimals = new ArrayList<Animal>();
 
 		for (int i = 0; i < animalList.size(); i++) {
-			System.out.print(this.animalList.get(i).getClass().getName());
-			if (this.animalList.get(i).getClass().getName().contains("Dog")) {
+
+			if (this.animalList.get(i).getClass().getName().contains(className)) {
 				filterAnimals.add(this.animalList.get(i));
 			}
 		}
 		return filterAnimals;
 	}
-	
 
 }
