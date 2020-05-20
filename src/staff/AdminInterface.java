@@ -2,13 +2,13 @@ package staff;
 
 public interface AdminInterface {
 	
-	public void CheckSystem() ;
+	public String CheckSystem() ;
 	
-	public void SellProduts();
+	public String SellProduts();
 	
-	public void bookAnimalAppointment();
+	public String bookAnimalAppointment();
 	
-	public void OrderSupplies();
+	public String OrderSupplies();
 	
 
 }

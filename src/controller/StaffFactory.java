@@ -9,16 +9,15 @@ import java.util.List;
 import animal.*;
 import staff.*;
 
-public class StaffFactory implements AdminInterface{
+public class StaffFactory implements AdminInterface {
 
 	ArrayList<Medical> medicList = new ArrayList<Medical>();
 	ArrayList<Admin> adminList = new ArrayList<Admin>();
 	ArrayList<Staff> staffList = new ArrayList<Staff>();
-	//ArrayList<Nurse> nurseList = new ArrayList<Nurse>();
+	// ArrayList<Nurse> nurseList = new ArrayList<Nurse>();
 	public int idStaff = 0;
-	
+	public String category = "";
 
-	
 //Here start listing all the veterinarian
 	public void addVeterinarian() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
@@ -27,7 +26,7 @@ public class StaffFactory implements AdminInterface{
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Veterinarian vet = new Veterinarian(name, surname,idStaff, salary, category);
+			Veterinarian vet = new Veterinarian(name, surname, idStaff, salary, category);
 			staffList.add(vet);
 			idStaff++;
 		}
@@ -36,13 +35,13 @@ public class StaffFactory implements AdminInterface{
 	// Here start listing all the nurse
 	public void addNurse() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		
+
 		for (int i = 1; i <= 21; i++) {
 			String name = staffName.getRandomFirstName();
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Nurse nurse = new Nurse(name,surname, idStaff, salary, category);
+			Nurse nurse = new Nurse(name, surname, idStaff, salary, category);
 			staffList.add(nurse);
 			idStaff++;
 		}
@@ -55,7 +54,7 @@ public class StaffFactory implements AdminInterface{
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Trainee trainee = new Trainee(name, surname,idStaff, salary, category);
+			Trainee trainee = new Trainee(name, surname, idStaff, salary, category);
 			medicList.add(trainee);
 			idStaff++;
 		}
@@ -70,7 +69,7 @@ public class StaffFactory implements AdminInterface{
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Manager manager = new Manager(name,surname, idStaff, salary, category);
+			Manager manager = new Manager(name, surname, idStaff, salary, category);
 			staffList.add(manager);
 			idStaff++;
 		}
@@ -84,7 +83,7 @@ public class StaffFactory implements AdminInterface{
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			ItNerd itNerd = new ItNerd(name, surname,idStaff, salary, category);
+			ItNerd itNerd = new ItNerd(name, surname, idStaff, salary, category);
 			staffList.add(itNerd);
 			idStaff++;
 		}
@@ -104,8 +103,7 @@ public class StaffFactory implements AdminInterface{
 		}
 
 	}
-	
-	
+
 	public Staff getStaffByName(String name) {
 		// get all the members
 		ArrayList allMembers = this.staffList;
@@ -136,14 +134,13 @@ public class StaffFactory implements AdminInterface{
 //		return mystaff;
 //	}
 
-
 	// I am collecting all staffs and agruping them by category
 	public Collection<Staff> listStaff(String className) {
 		List<Staff> filterStaff = new ArrayList<Staff>();
-		
-		for(int i=0; i < staffList.size(); i++) {
+
+		for (int i = 0; i < staffList.size(); i++) {
 			System.out.print(this.staffList.get(i).getClass().getName());
-			if(this.staffList.get(i).getClass().getName().contains("nurse")) {
+			if (this.staffList.get(i).getClass().getName().contains("nurse")) {
 				filterStaff.add(this.staffList.get(i));
 			}
 		}
@@ -153,31 +150,42 @@ public class StaffFactory implements AdminInterface{
 //				filterStaff.add(this.staffList.get(i));
 //			}
 //		}
-		
+
 		return filterStaff;
 	}
 
 	@Override
-	public void CheckSystem() {
-		// TODO Auto-generated method stub
-		
+	public String CheckSystem() {
+		if (category.equalsIgnoreCase("ItNerd") || (category.equalsIgnoreCase("Manager"))) {
+
+		}
+		return category;// TODO Auto-generated method stub
+
 	}
 
 	@Override
-	public void SellProduts() {
-		// TODO Auto-generated method stub
-		
+	public String SellProduts() {
+		if (category.equalsIgnoreCase("Receptionist")) {
+
+		}
+
+		return category;
 	}
 
 	@Override
-	public void bookAnimalAppointment() {
-		// TODO Auto-generated method stub
-		
+	public String bookAnimalAppointment() {
+		if (category.equalsIgnoreCase("Receptionist")) {
+
+		}
+		return category;
 	}
 
 	@Override
-	public void OrderSupplies() {
-		// TODO Auto-generated method stub
-		
+	public String OrderSupplies() {
+		String category = "";
+		if (category.equalsIgnoreCase("Manager")) {
+
+		}
+		return category;
 	}
 }
