@@ -11,4 +11,6 @@ public interface AdminInterface {
 	public String OrderSupplies();
 	
 	public String GetTask();
+	
+	public boolean IsAdmin();
 }

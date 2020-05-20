@@ -130,10 +130,11 @@ public class Helper extends StaffFactory {
 			break;
 		case 7:
 			System.out.println("List all Admin staff performing a certain task");
-			Collection<Staff> filterStaffByTask = myStaff.listByTask("Attending client");
+			Collection<Staff> filterStaffByTask = myStaff.listByTask("Test");
 			for (Staff staff : filterStaffByTask) {
 				System.out.println("Id" + " " + staff.getidStaff() + " " + staff.getName() +" " +staff.getSurname());
 			}
+			
 			break;
 		case 8:
 			System.out.println("IN CONSTRUCTION   List all the animals assigned to a member of medical staff");

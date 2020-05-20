@@ -65,4 +65,7 @@ public abstract class Staff {
 		return "Staff [name=" + name + ", surname=" + surname + "]";
 	}
 
+	public boolean IsAdmin() {
+		return false;
+	}
 }

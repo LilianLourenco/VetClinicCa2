@@ -9,6 +9,11 @@ public class Admin extends Staff implements AdminInterface{
 	protected String task;
 
 	@Override
+	public String GetTask() {
+		return task;
+	}
+
+	@Override
 	public String CheckSystem() {
 		// TODO Auto-generated method stub
 		return null;
@@ -33,7 +38,7 @@ public class Admin extends Staff implements AdminInterface{
 	}
 
 	@Override
-	public String GetTask() {
-		return task;
+	public boolean IsAdmin() {
+		return true;
 	}
 }

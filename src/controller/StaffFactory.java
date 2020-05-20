@@ -69,7 +69,7 @@ public class StaffFactory implements AdminInterface {
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Manager manager = new Manager(name, surname, idStaff, salary, category);
+			Manager manager = new Manager(name, surname, idStaff, salary, category, "Test");
 			staffList.add(manager);
 			idStaff++;
 		}
@@ -157,7 +157,7 @@ public class StaffFactory implements AdminInterface {
 	public Collection<Staff> listByTask(String task){
 		List<Staff> staffs = new ArrayList<Staff>();
 		for(Staff staff: staffList) {
-			if(staff.getClass().getName() == "Staff.Admin" && ((Admin)staff).GetTask() == task) {
+			if(staff.IsAdmin() && ((Admin)staff).GetTask() == task) {
 				staffs.add(staff);
 			}
 		}
