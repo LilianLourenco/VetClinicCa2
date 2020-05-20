@@ -97,7 +97,7 @@ public class StaffFactory implements AdminInterface {
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
 			String category = "";
-			Receptionist receptionist = new Receptionist(name, surname, idStaff, salary, category);
+			Receptionist receptionist = new Receptionist(name, surname, idStaff, salary, category, "Attending client");
 			adminList.add(receptionist);
 			idStaff++;
 		}
@@ -139,8 +139,8 @@ public class StaffFactory implements AdminInterface {
 		List<Staff> filterStaff = new ArrayList<Staff>();
 
 		for (int i = 0; i < staffList.size(); i++) {
-			System.out.print(this.staffList.get(i).getClass().getName());
-			if (this.staffList.get(i).getClass().getName().contains("nurse")) {
+			//System.out.print(this.staffList.get(i).getClass().getName());
+			if (this.staffList.get(i).getClass().getName().contains(className)) {
 				filterStaff.add(this.staffList.get(i));
 			}
 		}
@@ -152,6 +152,16 @@ public class StaffFactory implements AdminInterface {
 //		}
 
 		return filterStaff;
+	}
+	
+	public Collection<Staff> listByTask(String task){
+		List<Staff> staffs = new ArrayList<Staff>();
+		for(Staff staff: staffList) {
+			if(staff.getClass().getName() == "Staff.Admin" && ((Admin)staff).GetTask() == task) {
+				staffs.add(staff);
+			}
+		}
+		return staffs;
 	}
 
 	@Override

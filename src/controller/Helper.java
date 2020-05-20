@@ -66,13 +66,25 @@ public class Helper extends StaffFactory {
 			break;
 		case 2:
 			System.out.println("  IN CONSTRUCTION  List Staff by Categories");
-			Collection<Staff> filterStaff = myStaff.listStaff("Manager");
-			for (int i = 0; i < filterStaff.size(); i++) {
-				System.out.println(this.staffList.getClass().getName().contains("manager"));
-//				System.out.println(myStaff.idStaff +""+ myStaff.getClass().getName());
-				filterStaff.getClass().getName();
-				System.out.println();
+			String category = "";
+			System.out.println();
+			System.out.println("Press 1: for List all Manager");
+			option = sc.nextInt();
+			switch(option) {
+			case 1:
+				category = "Manager";
+				break;
 			}
+			Collection<Staff> filterStaff = myStaff.listStaff(category);
+			for (Staff staff : filterStaff) {
+				System.out.println("Id" + " " + staff.getidStaff() + " " + staff.getName() +" " +staff.getSurname());
+			}
+//			for (int i = 0; i < filterStaff.size(); i++) {
+//				System.out.println(this.staffList.getClass().getName().contains("manager"));
+////				System.out.println(myStaff.idStaff +""+ myStaff.getClass().getName());
+//				filterStaff.getClass().getName();
+//				System.out.println();
+//			}
 			break;
 
 		case 3:
@@ -118,6 +130,10 @@ public class Helper extends StaffFactory {
 			break;
 		case 7:
 			System.out.println("List all Admin staff performing a certain task");
+			Collection<Staff> filterStaffByTask = myStaff.listByTask("Attending client");
+			for (Staff staff : filterStaffByTask) {
+				System.out.println("Id" + " " + staff.getidStaff() + " " + staff.getName() +" " +staff.getSurname());
+			}
 			break;
 		case 8:
 			System.out.println("IN CONSTRUCTION   List all the animals assigned to a member of medical staff");
