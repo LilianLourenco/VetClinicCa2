@@ -9,7 +9,7 @@ import java.util.List;
 import animal.*;
 import staff.*;
 
-public class StaffFactory {
+public class StaffFactory implements AdminInterface{
 
 	ArrayList<Medical> medicList = new ArrayList<Medical>();
 	ArrayList<Admin> adminList = new ArrayList<Admin>();
@@ -65,7 +65,7 @@ public class StaffFactory {
 	// Here start listing all the veterinarian
 	public void addManager() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 0; i <= 4; i++) {
+		for (int i = 1; i <= 4; i++) {
 			String name = staffName.getRandomFirstName();
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
@@ -93,7 +93,7 @@ public class StaffFactory {
 
 	public void addReceptionist() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-		for (int i = 1; i <= 6; i++) {
+		for (int i = 1; i <= 7; i++) {
 			String name = staffName.getRandomFirstName();
 			String surname = staffName.getRandomSurname();
 			double salary = 0;
@@ -155,5 +155,29 @@ public class StaffFactory {
 //		}
 		
 		return filterStaff;
+	}
+
+	@Override
+	public void CheckSystem() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void SellProduts() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void bookAnimalAppointment() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void OrderSupplies() {
+		// TODO Auto-generated method stub
+		
 	}
 }

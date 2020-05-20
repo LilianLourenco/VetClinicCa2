@@ -69,6 +69,7 @@ public class Helper extends StaffFactory {
 			Collection<Staff> filterStaff = myStaff.listStaff("Manager");
 			for (int i = 0; i < filterStaff.size(); i++) {
 				System.out.println(this.staffList.getClass().getName().contains("manager"));
+//				System.out.println(myStaff.idStaff +""+ myStaff.getClass().getName());
 				filterStaff.getClass().getName();
 				System.out.println();
 			}
@@ -95,11 +96,13 @@ public class Helper extends StaffFactory {
 			break;
 
 		case 5:
-			System.out.println(" IN CONSTRUCTION  Search for a specific animal by species");
-			
-			
-			
-			
+			//System.out.println(" IN CONSTRUCTION  Search for a specific animal by species");
+			Collection<Animal> filterAnimal = myAnimal.ListAnimal();
+			for (int i = 0; i < filterAnimal.size(); i++) {
+				//System.out.println(this.animalList.getClass().getName().contains("Dog"));
+				filterAnimal.getClass().getName();
+				System.out.println();
+			}
 			break;
 
 		case 6:
@@ -108,7 +111,7 @@ public class Helper extends StaffFactory {
 			String animalName = sc.next();			
 			Animal name = myAnimal.getAnimalByName(animalName);
 			if (name != null) {
-				System.out.println(name.getName() + " " + " ID: " + name.getAnimalId()+" "+"Animal age"+" "+name.getAge()+" "+"Medical Conditional"+" "+ name.getMedicalCondition());
+				System.out.println(name.getName() + " " + " ID: " + name.getAnimalId()+" "+"Animal age:"+" "+name.getAge()+" "+"Medical Conditional:"+" "+ name.getMedicalCondition());
 			} else {
 				System.out.println("Animal not found");
 			}
