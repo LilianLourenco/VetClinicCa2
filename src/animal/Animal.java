@@ -1,13 +1,15 @@
 package animal;
 
+import staff.Veterinarian;
+
 public abstract class Animal {
 	protected String name;
 	protected  int animalId;
 	protected int age;
 	protected String medicalCondition;
 	protected String animalType;
-	
-	
+	public Veterinarian AtendAnimals;
+	public Boolean isAvailable;
 	
 	public Animal(String name, int animalId, int age, String medicalCondition, String animalType) {
 		super();

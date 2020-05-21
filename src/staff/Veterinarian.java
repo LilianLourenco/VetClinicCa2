@@ -1,5 +1,7 @@
 package staff;
 
+
+
 public class Veterinarian extends Medical {
 
 	public Veterinarian(String name, String surname, int idStaff, double salary, String category) {
@@ -8,6 +10,8 @@ public class Veterinarian extends Medical {
 	}
 
 	
+	
+		
 	
 
 }
