@@ -1,21 +1,16 @@
-package controller;
+package animal;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import animal.Animal;
-import animal.AnimalGenerator;
-import animal.AnimalNameGenerator;
-import animal.Birds;
-import animal.Cat;
-import animal.Dog;
-import animal.Rabbit;
 import staff.Staff;
+
+
 
 public class AnimalFactory {
 
-	ArrayList<Animal> animalList = new ArrayList<Animal>();
+	public ArrayList<Animal> animalList = new ArrayList<Animal>();
 	AnimalGenerator mc = new AnimalGenerator();
 	AnimalNameGenerator ng = new AnimalNameGenerator();
 	public int animalId = 0;
@@ -77,6 +72,7 @@ public class AnimalFactory {
 	public Collection<Animal> ListAnimal(String className) {
 		ArrayList<Animal> filterAnimal = new ArrayList<Animal>();
 		for (int i = 0; i < this.animalList.size(); i++) {
+			//if the 
 			if (this.animalList.get(i).getClass().getName().contains(className))
 				filterAnimal.add(animalList.get(i));
 
@@ -86,19 +82,25 @@ public class AnimalFactory {
 	}
 
 	public Animal getAnimalByName(String animalName) {
-		// get all the members
+		// get all the animals
 		ArrayList<Animal> allAnimais = this.animalList;
-		// loop through all the members
+		// loop through all the animals
 		for (int i = 1; i < allAnimais.size(); i++) {
-			// get all the member
+			// get all abunals by indice
 			Animal names = (Animal) allAnimais.get(i);
+			//if the name is equals the typped name
 			if (names.getName().equals(animalName)) {
 				return (names);
 			}
 		}
 		return null;
 	}
-
+	/** This method I will list the animal by type
+	 *  I created a collection  of animal
+	 * Did a For/looping for go throught my animal array
+	 * and I Did a If case to check if the names match
+	 * finally I add all in a filterAnimals
+	 */
 	public Collection<Animal> listAnimal(String className) {
 		List<Animal> filterAnimals = new ArrayList<Animal>();
 
@@ -110,5 +112,6 @@ public class AnimalFactory {
 		}
 		return filterAnimals;
 	}
+	
 
 }

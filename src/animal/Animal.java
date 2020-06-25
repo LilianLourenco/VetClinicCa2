@@ -4,13 +4,14 @@ import staff.Veterinarian;
 
 public abstract class Animal {
 	protected String name;
-	protected  int animalId;
+	protected int animalId;
 	protected int age;
 	protected String medicalCondition;
 	protected String animalType;
-	public Veterinarian AtendAnimals;
-	public Boolean isAvailable;
+	//variable type to create a foreign key of Veterinarian staff in a animal class
+	public Veterinarian vet;
 	
+
 	public Animal(String name, int animalId, int age, String medicalCondition, String animalType) {
 		super();
 		this.name = name;
@@ -18,8 +19,7 @@ public abstract class Animal {
 		this.age = age;
 		this.medicalCondition = medicalCondition;
 		this.animalType = animalType;
-		
-		
+
 	}
 
 	public String getName() {
@@ -29,7 +29,7 @@ public abstract class Animal {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public int getAnimalId() {
 		return animalId;
 	}
@@ -53,8 +53,6 @@ public abstract class Animal {
 	public void setMedicalCondition(String medicalCondition) {
 		this.medicalCondition = medicalCondition;
 	}
-	
-
 
 	public String getAnimalType() {
 		return animalType;
@@ -69,10 +67,4 @@ public abstract class Animal {
 		return "Animal [name=" + name + "]";
 	}
 
-	
-	
-	 
-	
-	
-	
-}	
+}

@@ -5,24 +5,20 @@ import java.util.List;
 import java.util.Scanner;
 
 import animal.Animal;
+import animal.AnimalFactory;
 import staff.Staff;
+import staff.StaffFactory;
 
 public class Helper extends StaffFactory {
 
-	public static void main(String[] args) {
-		new Helper();
-	}
 
-	public Helper() {
-		Menu();
-	}
 
 	public void Menu() {
 		StaffFactory myStaff = new StaffFactory();
 		AnimalFactory myAnimal = new AnimalFactory();
 		/**
-		 *I am taking all my methods form the StaffFactore class
-		 * and AnimalFactory class  
+		 * I am taking all my methods form the StaffFactore class and AnimalFactory
+		 * class
 		 */
 		Scanner sc = new Scanner(System.in);
 		myStaff.addManager();
@@ -36,7 +32,7 @@ public class Helper extends StaffFactory {
 		myAnimal.addRabbit();
 		myAnimal.addBirds();
 		/**
-		 * Here started the Main menu 
+		 * Here started the Main menu
 		 */
 		int option;
 		System.out.println("*****************************************");
@@ -60,11 +56,15 @@ public class Helper extends StaffFactory {
 		System.out.println("Press 0 to leave the menu");
 		do {
 			option = sc.nextInt();
-
+			// comparing multiple possible conditions I used the switch structure
 			switch (option) {
+
 			case 1:
+				// print this line for the user
 				System.out.println(" ***List all Staff***");
+				// go throught the staff array
 				for (Staff staff : myStaff.staffList) {
+					// printin all staff found in the array
 					System.out.println(
 							"Id" + " " + staff.getidStaff() + " " + staff.getName() + " " + staff.getSurname());
 
@@ -72,7 +72,7 @@ public class Helper extends StaffFactory {
 
 				break;
 			case 2:
-				//Sub menu for list Staff by category
+				// Sub menu for list Staff by category
 				System.out.println(" ***List Staff by Categories***");
 				String category = "";
 				System.out.println();
@@ -110,8 +110,9 @@ public class Helper extends StaffFactory {
 					break;
 
 				}
-
+				// this I used a colection for filter the staff by category
 				Collection<Staff> filterStaff = myStaff.listStaff(category);
+				//staff array
 				for (Staff staff : filterStaff) {
 					System.out.println(
 							"Id" + " " + staff.getidStaff() + " " + staff.getName() + " " + staff.getSurname());
@@ -120,13 +121,15 @@ public class Helper extends StaffFactory {
 				break;
 
 			case 3:
-
+				
 				System.out.println("Type the Staff's first name: ");
+				// Receive the input form the user
 				String staffName = sc.next();
 				Staff nameStaff = myStaff.getStaffByName(staffName);
+				// id the user type some name It will looking for the name in my "Database"
 				if (nameStaff != null) {
-					System.out.println(
-							nameStaff.getName() + " " + nameStaff.getSurname() + " ID: " + nameStaff.getidStaff()+" "+ "Staff salary"+ " "+nameStaff.getSalry());
+					System.out.println(nameStaff.getName() + " " + nameStaff.getSurname() + " ID: "
+							+ nameStaff.getidStaff() + " " + "Staff salary" + " " + nameStaff.getSalry());
 				} else {
 					System.out.println("Staff not found in the Database!");
 				}
@@ -142,7 +145,7 @@ public class Helper extends StaffFactory {
 				break;
 
 			case 5:
-				//Sub menu for list Animal by category
+				// Sub menu for list Animal by category
 				String type = "";
 				System.out.println();
 				System.out.println("Press 1: for List all Dogs");
@@ -177,28 +180,29 @@ public class Helper extends StaffFactory {
 			case 6:
 
 				System.out.println("Type the Animal name:");
-				//take the user input
+				// take the user input
 				String animalName = sc.next();
-				//creating an object on the class Animal
+				// creating an object on the class Animal
 				Animal name = myAnimal.getAnimalByName(animalName);
 				// validating if contem the name in the database
 				if (name != null) {
-					//printing animal data
+					// printing animal data
 					System.out.println(name.getName() + " " + " ID: " + name.getAnimalId() + " " + "Animal age:" + " "
 							+ name.getAge() + " " + "Medical Conditional:" + " " + name.getMedicalCondition());
 				} else {
-					//if there are not the name will returnig this mensage
+					// if there are not the name will returnig this mensage
 					System.out.println("Animal not found");
 				}
 				break;
 			case 7:
 
 				String tasks = "";
-				////Sub menu for list Staff that is performing a task
+				//// Sub menu for list Staff that is performing a task
+
 				System.out.println("Press 1: Manage Employees ");
 				System.out.println("Press 2:  Making Phone Calls");
 				System.out.println("Press 3:  Database Management");
-				System.out.println("Press 4:  On holiday");
+				// System.out.println("Press 4: On holiday");
 				option = sc.nextInt();
 				switch (option) {
 
@@ -208,7 +212,7 @@ public class Helper extends StaffFactory {
 					break;
 
 				case 2:
-					
+
 					tasks = "Making Phone Calls";
 					break;
 				case 3:
@@ -216,9 +220,9 @@ public class Helper extends StaffFactory {
 					break;
 
 				}
-				//Filter that will take only the staff that is performing certain task
+				// Filter that will take only the staff that is performing certain task
 				Collection<Staff> filterStaffByTask = myStaff.listByTask("Manage Employees");
-				// go thought the staff array checking  the admin staff 
+				// go thought the staff array checking the admin staff
 				for (Staff staff : filterStaffByTask) {
 					System.out.println(
 							"Id" + " " + staff.getidStaff() + " " + staff.getName() + " " + staff.getSurname());
@@ -226,30 +230,34 @@ public class Helper extends StaffFactory {
 				}
 
 				break;
-			case 8:
+			case 8:// Not working but still trying to figured out does it work
 				System.out.println("IN CONSTRUCTION   List all the animals assigned to a member of medical staff");
 				break;
 
-			case 9:
+			case 9:// Not working but still trying to figured out does it work
 				System.out.println(
 						" IN CONSTRUCTION  List the order in which pets will be looked after by a particular member of the medical");
 				break;
 
-			case 10:
+			case 10:// Not working but still trying to figured out does it work
 				System.out.println(" IN CONSTRUCTION  For a given member of the medical staff, pass to the next pet.");
 				break;
+
+			case 0:
+				System.out.println("Thank you for accessing VetClinic");
+				System.exit(0);
 			default:
 				System.out.println("Not a valid Option");
 				break;
 
 			}
 			/**
-			 *I did a Do while forafter the user see the option he will be able
-			 * for continue to see the menu an search for another option 
+			 * I did a Do while for after the user see the option he will be able to
+			 * continue  seeing the menu and search for another option
 			 */
-			
-		 }while(option !=0);
-		
+
+		} while (option != 0);
+
 	}
 
 }

@@ -18,16 +18,15 @@ public class AnimalGenerator {
 	public String getRandomMedCondition() {
 		// return a random name
 
-		// pick a firstname and surname based on length of array
-
+		// pick a medical Condition based on length of array
 		String medCondition = mCondition[rd.nextInt(mCondition.length)];
 		return (medCondition);
 
 	}
 
 	public int ageGenerator() {
+		// this method is to pick the animal age randomicaly
 		int age = rd.nextInt(16);
-		// System.out.println(age);
 		return age;
 
 	}

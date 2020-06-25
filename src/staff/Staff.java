@@ -1,5 +1,9 @@
 package staff;
-
+/**
+ * 
+ * @author Lilian Lourenco 2019323
+ *This class has the staff variables and all Setters and Getters
+ */
 public abstract class Staff {
 	protected String name;
 	protected String surname;

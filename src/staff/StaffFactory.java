@@ -1,8 +1,5 @@
-package controller;
+package staff;
 
-import staff.StaffNameGenerator;
-import staff.Trainee;
-import staff.Veterinarian;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -13,7 +10,7 @@ public class StaffFactory implements AdminInterface {
 
 //	ArrayList<Medical> medicList = new ArrayList<Medical>();
 	ArrayList<Admin> adminList = new ArrayList<Admin>();
-	ArrayList<Staff> staffList = new ArrayList<Staff>();
+	public ArrayList<Staff> staffList = new ArrayList<Staff>();
 
 	//creating an global id for Staff
 	public int idStaff = 0; 
@@ -47,7 +44,7 @@ public class StaffFactory implements AdminInterface {
 	// Here start listing all the nurse
 	public void addNurse() {
 		StaffNameGenerator staffName = new StaffNameGenerator();
-
+			
 		for (int i = 1; i <= 15; i++) {
 			String name = staffName.getRandomFirstName();
 			String surname = staffName.getRandomSurname();
@@ -135,12 +132,22 @@ public class StaffFactory implements AdminInterface {
 	/**
 	 * THE OBJETIVE OF THIS METHOD IS LIST ALL STAFF BY CATEGORY
 	 */
-
+	
+	
 	// I am collecting all staffs and agruping them by category
+	/**
+	 * Reference Feed Factory Project
+	 */
 	public Collection<Staff> listStaff(String className) {
 		List<Staff> filterStaff = new ArrayList<Staff>();
 
 		for (int i = 0; i < staffList.size(); i++) {
+	
+			/**
+			 *
+			 * THE OBJETIVE OF THIS METHOD IS LIST ALL STAFF BY CATEGORY
+			 */
+			 
 			if (this.staffList.get(i).getClass().getName().contains(className)) {
 				filterStaff.add(this.staffList.get(i));
 			}
