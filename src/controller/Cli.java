@@ -36,6 +36,7 @@ College.java from Software Development Fundamentals
  Random Name Generator from Software Development Fundamentals
 Office from Software Development Fundamentals
 Feed Factory Project Algorithms & Constructs
+Restaurant Project Algorithms & Constructs
 Get the current class https://stackoverflow.com/questions/6271417/java-get-the-current-class-name
 
 
